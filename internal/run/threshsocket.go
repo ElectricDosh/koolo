@@ -28,8 +28,8 @@ func (m Threshsocket) BuildActions() []action.Action {
 
 			return 0, false
 		}, nil),
-			a.builder.ItemPickup(false, 35),
-		)
+		a.builder.ItemPickup(false, 35)
+		
 	}
 
 	return
