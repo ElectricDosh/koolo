@@ -16,11 +16,11 @@ func (m Threshsocket) Name() string {
 	return string(config.ThreshsocketRun)
 }
 
-func (m Threshsocket) BuildActions() []action.Action {
+func (t Threshsocket) BuildActions() []action.Action {
 	actions := []action.Action{
-		m.builder.WayPoint(area.CrystallinePassage), // Moving to starting point (Crystalline Passage)
-		m.builder.MoveToArea(area.ArreatPlateau),
-		a.char.KillMonsterSequence(func(d game.Data) (data.UnitID, bool) {
+		t.builder.WayPoint(area.CrystallinePassage), // Moving to starting point (Crystalline Passage)
+		t.builder.MoveToArea(area.ArreatPlateau),
+		t.char.KillMonsterSequence(func(d game.Data) (data.UnitID, bool) {
 			if m, found := d.Monsters.FindOne(npc.BloodBringer, data.MonsterTypeSuperUnique); found {
 				return m.UnitID, true
 			}
@@ -28,7 +28,7 @@ func (m Threshsocket) BuildActions() []action.Action {
 
 			return 0, false
 		}, nil),
-		a.builder.ItemPickup(false, 35)
+		t.builder.ItemPickup(false, 35)
 		
 	}
 
