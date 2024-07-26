@@ -12,7 +12,7 @@ type Threshsocket struct {
 	baseRun
 }
 
-func (m Threshsocket) Name() string {
+func (t Threshsocket) Name() string {
 	return string(config.ThreshsocketRun)
 }
 
@@ -28,7 +28,7 @@ func (t Threshsocket) BuildActions() []action.Action {
 
 			return 0, false
 		}, nil),
-		t.builder.ItemPickup(false, 35)
+		t.builder.ItemPickup(false, 35),
 		
 	}
 
