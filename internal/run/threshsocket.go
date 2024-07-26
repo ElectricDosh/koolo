@@ -18,7 +18,7 @@ func (m Threshsocket) Name() string {
 
 func (m Threshsocket) BuildActions() []action.Action {
 	actions := []action.Action{
-		m.builder.WayPoint(area.CrystallinePassage), // Moving to starting point (Durance of Hate Level 2)
+		m.builder.WayPoint(area.CrystallinePassage), // Moving to starting point (Crystalline Passage)
 		m.builder.MoveToArea(area.ArreatPlateau),
 		a.char.KillMonsterSequence(func(d game.Data) (data.UnitID, bool) {
 			if m, found := d.Monsters.FindOne(npc.BloodBringer, data.MonsterTypeSuperUnique); found {
