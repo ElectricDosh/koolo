@@ -82,9 +82,9 @@ func (s MosaicSin) KillMonsterSequence(
 		}
 
 		// Fists of Fire
-		//if !d.PlayerUnit.States.HasState(state.Fistsoffire) {
-		//	steps = append(steps, step.SecondaryAttack(skill.FistsOfFire, id, 4, opts...))
-		//}
+		if !d.PlayerUnit.States.HasState(state.Fistsoffire) {
+			steps = append(steps, step.SecondaryAttack(skill.FistsOfFire, id, 4, opts...))
+		}
 
 		// Finish it off with primary attack
 		steps = append(steps, step.PrimaryAttack(id, 1, false, opts...))
@@ -179,9 +179,9 @@ func (s MosaicSin) killMonster(npc npc.ID, t data.MonsterType) action.Action {
 		}
 
 		// Fists of Fire
-		//if !d.PlayerUnit.States.HasState(state.Fistsoffire) {
-		//	steps = append(steps, step.SecondaryAttack(skill.FistsOfFire, id, 4, opts...))
-		//}
+		if !d.PlayerUnit.States.HasState(state.Fistsoffire) {
+			steps = append(steps, step.SecondaryAttack(skill.FistsOfFire, monster.UnitID, 4, opts...))
+		}
 
 		if !s.MobAlive(monster.UnitID, d) { // Check if the mob is still alive
 			return []step.Step{}
